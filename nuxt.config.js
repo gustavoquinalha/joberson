@@ -51,7 +51,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    // { src: '~/plugins/html-to-image', ssr: false }
+    { src: '~/plugins/scroll-event.js', ssr: false }
+  ],
 
   /*
    ** Nuxt.js modules
