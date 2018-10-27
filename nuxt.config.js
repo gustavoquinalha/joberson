@@ -53,6 +53,7 @@ module.exports = {
    */
   plugins: [
     // { src: '~/plugins/html-to-image', ssr: false }
+    { src: '~/plugins/scroll-event.js', ssr: false }
   ],
 
   /*

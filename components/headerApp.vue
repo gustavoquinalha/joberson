@@ -5,7 +5,9 @@
           <div>
             <span class="logo">Joberson</span>
           </div>
-
+          <div class="menu__export" :class="{ moqued: !$store.state.scrollGoingToBottom }">
+            <btn-export></btn-export>
+          </div>
           <div>
             <ul class="list-style-none container">
               <li> <a href="" class="menu-item active">Criar</a></li>
@@ -16,7 +18,9 @@
         </div>
       </div>
 
-      <div class="menu-config container column justify-content-center">
+      <div class="menu-config container column justify-content-center"
+        :class="{ moqued: $store.state.scrollGoingToBottom }"
+      >
         <div class="config-company">
           <span class="emoji">👉</span>
           <span>Oportunidade na <strong>Netflix</strong></span>
@@ -71,6 +75,12 @@ export default {
   left: 0;
   padding: 0 16px;
   box-sizing: border-box;
+  z-index: 1;
+
+  &__export {
+    opacity: 1;
+    transition: opacity .3s .15s;
+  }
 }
 
 .logo {
@@ -84,6 +94,8 @@ export default {
   padding: 16px;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  opacity: 1;
+  transition: opacity .3s;
 }
 
 .config-company {
@@ -107,5 +119,9 @@ export default {
   &:hover {
     opacity: 1;
   }
+}
+
+.moqued {
+  opacity: 0;
 }
 </style>
