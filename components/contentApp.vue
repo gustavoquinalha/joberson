@@ -48,22 +48,7 @@
           </div>
 
           <div class="container-contact" style="top: 150px; left: 320px; width: 430px;">
-            <!-- <textarea name="" id="" cols="30" rows="4" :value="job.content"></textarea> -->
-            <vue-markdown :source="job.content">
-# Requisitos
-
-- Experiência em banco de dados PostgreSQL, MongoDB e Cassandra.
-- Experiência com ferramentas de ETL e integração de dados.
-- Conhecimento em Power BI.
-
-# Atividades
-
-- Apoiar o time de desenvolvimento
-- Definir a melhor tecnologia de banco de dados
-- Monitorar a saúde do banco de dados
-- Apoiar o time de BI – Bussiness Inteligence
-- Criar e disponibilizar relatórios para as diversas
-            </vue-markdown>
+            <editableMarkdown></editableMarkdown>
           </div>
 
         </div>
@@ -74,11 +59,11 @@
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown'
+import editableMarkdown from '~/components/editableMarkdown'
 
 export default {
   components: {
-    VueMarkdown
+    editableMarkdown
   },
   data() {
     return {
@@ -96,8 +81,6 @@ export default {
   }
 }
 </script>
-
-
 
 <style lang="scss" scoped>
 .size-container {
