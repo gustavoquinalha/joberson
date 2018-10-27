@@ -45,10 +45,10 @@
 </template>
 
 <script>
-import btnExport from '~/components/btnExport'
+import ButtonExport from '~/components/ButtonExport'
 export default {
   components: {
-    btnExport
+    ButtonExport
   }
 }
 </script>
