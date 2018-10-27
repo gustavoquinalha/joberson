@@ -2,13 +2,11 @@
   <div>
 
     <div class="size-container">
+
         <div class="content-app--menu container align-center">
-          <ul class="list-style-none container wrap">
-            <li class="icon-menu">
+          <ul class="list-style-none container align-center wrap">
+            <li class="icon-menu active">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-            </li>
-            <li class="icon-menu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-type"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
             </li>
             <li class="icon-menu">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
@@ -19,8 +17,9 @@
             <li class="icon-menu">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             </li>
-            <li class="icon-menu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <li class="icon-menu" @click="job.dark = !job.dark">
+              <svg v-show="job.dark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              <svg v-show="!job.dark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
             </li>
             <li class="icon-menu">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
@@ -28,39 +27,46 @@
           </ul>
         </div>
 
+        <div class="content-app--container" :class="{dark : job.dark}">
 
+          <div class="container-logo" style="top: 60px; left: 60px;">
+            <img :src="job.logo" :width="job.logoWidth">
+          </div>
 
+          <div class="container-company" style="top: 150px; left: 60px;">
+            <span class="title">Vaga de</span class="title">
+            <br>
+            <span class="role">{{job.role}}</span>
+          </div>
 
+          <div class="container-contact" style="top: 280px; left: 60px;">
+            <span class="title">Contato</span class="title">
+            <ul class="list-style-none contact">
+              <li>{{job.url}}</li>
+              <li>{{job.contact}}</li>
+            </ul>
+          </div>
 
+          <div class="container-contact" style="top: 150px; left: 320px; width: 430px;">
+            <!-- <textarea name="" id="" cols="30" rows="4" :value="job.content"></textarea> -->
+            <vue-markdown :source="job.content">
+# Requisitos
 
+- Experiência em banco de dados PostgreSQL, MongoDB e Cassandra.
+- Experiência com ferramentas de ETL e integração de dados.
+- Conhecimento em Power BI.
 
-        <div class="content-app--container">
+# Atividades
 
-        <div class="container-logo" style="top: 80px; left: 80px;">
-          <img :src="job.logo" :width="job.logoWidth">
+- Apoiar o time de desenvolvimento
+- Definir a melhor tecnologia de banco de dados
+- Monitorar a saúde do banco de dados
+- Apoiar o time de BI – Bussiness Inteligence
+- Criar e disponibilizar relatórios para as diversas
+            </vue-markdown>
+          </div>
+
         </div>
-
-        <div class="container-company" style="top: 160px; left: 80px;">
-          <span class="title">Vaga de</span class="title">
-          <br>
-          <span class="role">{{job.role}}</span>
-        </div>
-
-        <div class="container-contact" style="top: 240px; left: 80px;">
-          <span class="title">Vaga de</span class="title">
-          <ul class="list-style-none contact">
-            <li>{{job.url}}</li>
-            <li>{{job.contact}}</li>
-          </ul>
-        </div>
-
-        </div>
-
-
-
-
-
-
 
     </div>
 
@@ -68,8 +74,12 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown'
+
 export default {
-  components: {},
+  components: {
+    VueMarkdown
+  },
   data() {
     return {
       job: {
@@ -79,7 +89,8 @@ export default {
         logoWidth: '180',
         role: 'User Interface Designer',
         contact: 'jobs@netflix.com.br',
-        content: 'lorem lorem'
+        content: '# lorem lorem',
+        dark: false
       }
     }
   }
@@ -94,29 +105,45 @@ export default {
   width: 800px;
   margin: 0 auto;
   margin-bottom: 34px;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 .content-app--menu {
   border-radius: 4px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   text-align: center;
   color: #fff;
 }
 
 .content-app--container {
-  min-height: 600px;
+  min-height: 550px;
   position: relative;
   border: 1px solid #000;
+  color: #000;
+  background: #fff;
+  transition: 0.3s;
+  overflow: auto;
+
   > div {
     position: absolute;
     top: 0;
     left: 0;
   }
+
+  &.edit {
+    border: 1px dashed red;
+    padding: 5px;
+  }
+
+  &.dark {
+    color: #fff;
+    background: #000;
+  }
 }
 
 .icon-menu {
-  background: #000;
+  user-select: none;
   margin: 4px;
   width: 36px;
   height: 36px;
@@ -125,6 +152,21 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  svg {
+    transition: 0.3s;
+    stroke: #000;
+  }
+  &:hover,
+  &.active {
+    background: #000;
+    svg {
+      stroke: #fff;
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 .role {
@@ -133,7 +175,9 @@ export default {
 }
 
 .contact {
-  opacity: .5;
-  line-height: 1.5;
+}
+
+.container-company {
+  max-width: 290px;
 }
 </style>

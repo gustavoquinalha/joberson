@@ -29,7 +29,8 @@ module.exports = {
       {
         href: 'https://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet'
       }
-    ]
+    ],
+    script: []
   },
 
   /*
