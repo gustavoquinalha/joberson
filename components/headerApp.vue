@@ -44,6 +44,28 @@
 </template>
 
 <style lang="scss" scoped>
+.menu-relative {
+  content: '';
+  height: 70px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.menu {
+  height: 70px;
+  background: #000;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
 .logo {
   font-weight: bold;
   font-size: 1.5rem;
@@ -51,7 +73,6 @@
 
 .menu-config {
   background: #000;
-  // min-height: 150px;
   color: #fff;
   padding: 16px;
   box-sizing: border-box;

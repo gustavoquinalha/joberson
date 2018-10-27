@@ -1,0 +1,30 @@
+.btn {
+  height: 36px;
+  min-width: 36px;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 46px;
+  border: 1px solid #fff;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: .3s;
+
+  svg {
+    transition: .3s;
+  }
+
+  &:hover {
+    background: #fff;
+    color: #000;
+
+    svg {
+      stroke: #000;
+    }
+  }
+}
