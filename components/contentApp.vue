@@ -30,17 +30,17 @@
         <div class="content-app--container" :class="{dark : job.dark}">
 
           <div class="container-logo" style="top: 60px; left: 60px;">
-            <img :src="job.logo" :width="job.logoWidth">
+            <BoxComponentImage></BoxComponentImage>
           </div>
 
           <div class="container-company" style="top: 150px; left: 60px;">
-            <span class="title">Vaga de</span class="title">
+            <span class="title">Vaga de</span>
             <br>
             <span class="role">{{job.role}}</span>
           </div>
 
           <div class="container-contact" style="top: 280px; left: 60px;">
-            <span class="title">Contato</span class="title">
+            <span class="title">Contato</span>
             <ul class="list-style-none contact">
               <li>{{job.url}}</li>
               <li>{{job.contact}}</li>
@@ -48,7 +48,7 @@
           </div>
 
           <div class="container-contact" style="top: 150px; left: 320px; width: 430px;">
-            <editableMarkdown></editableMarkdown>
+            <BoxComponentMarkdown></BoxComponentMarkdown>
           </div>
 
         </div>
@@ -59,11 +59,13 @@
 </template>
 
 <script>
-import editableMarkdown from '~/components/editableMarkdown'
+import BoxComponentImage from '~/components/BoxComponentImage'
+import BoxComponentMarkdown from '~/components/BoxComponentMarkdown'
 
 export default {
   components: {
-    editableMarkdown
+    BoxComponentImage,
+    BoxComponentMarkdown
   },
   data() {
     return {
