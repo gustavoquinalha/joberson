@@ -19,12 +19,124 @@
     transition: .3s;
   }
 
+  &.active,
   &:hover {
     background: #fff;
     color: #000;
 
     svg {
       stroke: #000;
+    }
+  }
+}
+
+.icon-menu {
+  position: relative;
+
+  .menu-block {
+    z-index: 999;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 10px;
+    visibility: hidden;
+  }
+
+  &:hover {
+    .menu-block {
+      visibility: visible;
+    }
+  }
+}
+
+.menu-dropdown {
+  width: 250px;
+  max-width: 100%;
+  background: #000;
+  border-radius: 4px;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  &::before {
+    width: 14px;
+    height: 14px;
+    background: #000;
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    border-radius: 2px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.menu-tooltip {
+  width: inherit;
+  white-space: nowrap;
+}
+
+.menu-size-input {
+
+  .form-control {
+    margin: 0 8px;
+  }
+}
+
+.drop-padding {
+
+  .menu-dropdown {
+    padding: 32px 16px;
+  }
+}
+
+.icon-menu {
+  user-select: none;
+  margin: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+
+  svg {
+    transition: 0.3s;
+    stroke: #000;
+  }
+
+  &:hover,
+  &.active {
+    background: #000;
+
+    svg {
+      stroke: #fff;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.light-menu {
+
+  .icon-menu {
+    svg {
+      transition: 0.3s;
+      stroke: #fff;
+    }
+
+    &:hover,
+    &.active {
+      background: #fff;
+
+      svg {
+        stroke: #000;
+      }
     }
   }
 }

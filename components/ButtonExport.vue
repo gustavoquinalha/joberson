@@ -1,5 +1,6 @@
 <template>
-  <button
+  <div class="btn-export">
+    <button
     class="btn"
     @click="exportar"
   >
@@ -22,6 +23,7 @@
     </svg>
     Exportar
   </button>
+  </div>
 </template>
 
 <script>
@@ -30,8 +32,11 @@ import * as htmlToImage from 'html-to-image'
 export default {
   methods: {
     exportar() {
-      htmlToImage.toJpeg(document.querySelector('.content-app--container'), { quality: 0.95 })
-        .then(function (dataUrl) {
+      htmlToImage
+        .toJpeg(document.querySelector('.content-app--container'), {
+          quality: 0.95
+        })
+        .then(function(dataUrl) {
           var link = document.createElement('a')
           link.download = 'joberson.jpeg'
           link.href = dataUrl

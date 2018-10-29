@@ -1,0 +1,23 @@
+.sidebar {
+  background: #000;
+  color: #fff;
+  margin: 8px;
+  border-radius: 4px;
+  flex-basis: 350px;
+
+  .form-control {
+    opacity: .5;
+    transition: .3s;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.box {
+  padding: 16px;
+  max-width: 400px;
+  margin: 0 auto
+}

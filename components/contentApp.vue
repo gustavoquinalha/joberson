@@ -1,24 +1,27 @@
 <template>
-  <div>
+  <div class="container wrap">
+    <sidebar/>
+
     <div class="size-container">
-        <div class="content-app--menu container align-center">
-          <menu-tools></menu-tools>
+      <div class="content-app--menu container align-center" v-show="!$store.state.scrollGoingToBottom">
+        <menu-tools></menu-tools>
+      </div>
+      <div class="content-app--container flex-basis-600 flex-grow-1" :class="{ dark : $store.state.dark }">
+        <div class="container-logo box-selection" style="top: 60px; left: 60px; width: 230px">
+          <box-component-image></box-component-image>
         </div>
-        <div class="content-app--container" :class="{ dark : $store.state.dark }">
-          <div class="container-logo" style="top: 60px; left: 60px;">
-            <box-component-image></box-component-image>
-          </div>
-          <div class="container-company" style="top: 150px; left: 60px;">
-            <box-component-roles></box-component-roles>
-          </div>
-          <div class="container-contact" style="top: 280px; left: 60px;">
-            <box-component-contact></box-component-contact>
-          </div>
-          <div class="container-contact" style="top: 150px; left: 320px; width: 430px;">
-            <box-component-markdown></box-component-markdown>
-          </div>
+        <div class="container-company box-selection" style="top: 150px; left: 60px; width: 230px">
+          <box-component-roles></box-component-roles>
         </div>
+        <div class="container-contact box-selection" style="top: 280px; left: 60px; width: 230px">
+          <box-component-contact></box-component-contact>
+        </div>
+        <div class="container-contact box-selection" style="top: 150px; left: 320px; width: 430px;">
+          <box-component-markdown></box-component-markdown>
+        </div>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -28,6 +31,7 @@ import BoxComponentMarkdown from '~/components/BoxComponentMarkdown'
 import BoxComponentRoles from '~/components/BoxComponentRoles'
 import BoxComponentContact from '~/components/BoxComponentContact'
 import MenuTools from '~/components/MenuTools'
+import sidebar from '~/components/sidebar'
 
 export default {
   components: {
@@ -35,7 +39,8 @@ export default {
     BoxComponentMarkdown,
     BoxComponentRoles,
     BoxComponentContact,
-    MenuTools
+    MenuTools,
+    sidebar
   }
 }
 </script>
@@ -66,6 +71,10 @@ export default {
   transition: 0.3s;
   overflow: auto;
 
+  a {
+    color: #000;
+  }
+
   > div {
     position: absolute;
     top: 0;
@@ -76,38 +85,6 @@ export default {
     border: 1px dashed red;
     padding: 5px;
   }
-
-  &.dark {
-    color: #fff;
-    background: #000;
-  }
-}
-
-.icon-menu {
-  user-select: none;
-  margin: 4px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
-  svg {
-    transition: 0.3s;
-    stroke: #000;
-  }
-  &:hover,
-  &.active {
-    background: #000;
-    svg {
-      stroke: #fff;
-      width: 20px;
-      height: 20px;
-    }
-  }
 }
 
 .role {
@@ -115,10 +92,31 @@ export default {
   font-weight: bold;
 }
 
-.contact {
+.container-company {
 }
 
-.container-company {
-  max-width: 290px;
+.box-selection {
+  position: relative;
+  &::after {
+    content: 'Clique 2 vezes para editar';
+    display: block;
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: -1px;
+    background: #000;
+    border-radius: 2px;
+    color: #fff;
+    white-space: nowrap;
+    padding: 4px 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    visibility: hidden;
+  }
+  &:hover {
+    border: 1px dashed #000;
+    &::after {
+      visibility: visible;
+    }
+  }
 }
 </style>

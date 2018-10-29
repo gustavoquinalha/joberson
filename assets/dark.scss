@@ -1,0 +1,26 @@
+.content-app--container {
+
+  &.dark {
+    color: #fff;
+    background: #000;
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+.content-app--container {
+  &.dark {
+    .box-selection {
+      &::after {
+        background: #fff;
+        color: #000;
+      }
+
+      &:hover {
+        border: 1px dashed #fff;
+      }
+    }
+  }
+}

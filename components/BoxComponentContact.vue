@@ -13,7 +13,7 @@
     <div class="addItem">
       <input
         type="text"
-        placeholder="Presison ENTER para adicionar"
+        placeholder="Precione ENTER para adicionar"
         @keydown.13="add"
         v-model="contact"
         @blur="contact = ''"
@@ -46,7 +46,8 @@ export default {
         this.items.push({
           text: this.contact,
           type: getType(this.contact)
-        })
+        });
+        this.contact = ''
       }
     }
   }
