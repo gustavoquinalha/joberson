@@ -3,18 +3,18 @@
     <sidebar/>
 
     <div class="size-container">
-      <div class="content-app--menu container align-center" v-show="!$store.state.scrollGoingToBottom">
+      <div
+        class="content-app--menu container align-center"
+        v-show="!$store.state.scrollGoingToBottom"
+      >
         <menu-tools></menu-tools>
       </div>
-      <div class="content-app--container flex-basis-600 flex-grow-1" :class="{ dark : $store.state.dark }" ref="content">
-
-
-
-
-
-
-
-
+      <div
+        class="content-app--container flex-basis-600 flex-grow-1"
+        :class="{ dark : $store.state.dark }"
+        ref="content"
+        :style="style"
+      >
 
         <div class="container-logo box-selection"
              style="top: 60px; left: 65px; width: 180px; z-index: 1"
@@ -24,7 +24,6 @@
           <box-component-image></box-component-image>
         </div>
 
-
         <div class="container-company box-selection"
              style="top: 150px; left: 65px; width: 230px; z-index: 1"
              ref="roles"
@@ -32,7 +31,6 @@
              @mousedown.prevent="drag('roles', $event)">
           <box-component-roles></box-component-roles>
         </div>
-
 
         <div class="container-contact box-selection"
              style="top: 280px; left: 65px; width: 230px; z-index: 1"
@@ -42,7 +40,6 @@
           <box-component-contact></box-component-contact>
         </div>
 
-
         <div class="container-contact box-selection"
              style="top: 150px; left: 317px; width: 400px; z-index: 1;"
              ref="markdown"
@@ -51,28 +48,22 @@
           <box-component-markdown></box-component-markdown>
         </div>
 
-
-      <div class="grid">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-
-
-
-
+        <div class="grid">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -151,6 +142,11 @@ export default {
     BoxComponentContact,
     MenuTools,
     sidebar
+  },
+  computed: {
+    style() {
+      return `width:${this.$store.state.width}px;height:${this.$store.state.height}px;`
+    }
   }
 }
 </script>

@@ -14,12 +14,12 @@
         <div class="menu-dropdown">
           <div class="container align-items-center margin-bottom-20">
             <label for="">Width</label>
-            <input type="text" class="form-control" name="width" v-model="app.width">
+            <input type="text" class="form-control" name="width" v-model="width">
             <span>px</span>
           </div>
           <div class="container align-items-center">
             <label for="">Height</label>
-            <input type="text" class="form-control" name="height" v-model="app.height">
+            <input type="text" class="form-control" name="height" v-model="height">
             <span>px</span>
           </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="menu-dropdown">
           <div class="form-group">
             <label for="">Background URL</label>
-            <input type="text" class="form-control" name="width" v-model="app.backgroundUrl">
+            <input type="text" class="form-control" name="width" v-model="backgroundUrl">
           </div>
         </div>
       </div>
@@ -43,11 +43,11 @@
         <div class="menu-dropdown">
           <div class="form-group margin-bottom-20">
             <label for="">Background color</label>
-            <input type="text" class="form-control" name="width" v-model="app.backgroundColor">
+            <input type="text" class="form-control" name="width" v-model="backgroundColor">
           </div>
           <div class="form-group">
             <label for="">Text color</label>
-            <input type="text" class="form-control" name="width" v-model="app.textColor">
+            <input type="text" class="form-control" name="width" v-model="textColor">
           </div>
         </div>
       </div>
@@ -73,15 +73,65 @@
   </ul>
 </template>
 
-<style lang="scss">
-</style>
-
 <script>
-import { mapState } from 'vuex'
-
 export default {
   computed: {
-    ...mapState(['app'])
+    width: {
+      get() {
+        return this.$store.state.width
+      },
+      set(value) {
+        this.$store.commit('setWidth', value)
+      }
+    },
+    height: {
+      get() {
+        return this.$store.state.height
+      },
+      set(value) {
+        this.$store.commit('setHeight', value)
+      }
+    },
+    backgroundUrl: {
+      get() {
+        return this.$store.state.backgroundUrl
+      },
+      set(value) {
+        this.$store.commit('setBackgroundUrl', value)
+      }
+    },
+    backgroundColor: {
+      get() {
+        return this.$store.state.backgroundColor
+      },
+      set(value) {
+        this.$store.commit('setBackgroundColor', value)
+      }
+    },
+    backgroundAlign: {
+      get() {
+        return this.$store.state.backgroundAlign
+      },
+      set(value) {
+        this.$store.commit('setBackgroundAlign', value)
+      }
+    },
+    backgroundSize: {
+      get() {
+        return this.$store.state.backgroundSize
+      },
+      set(value) {
+        this.$store.commit('setBackgroundSize', value)
+      }
+    },
+    textColor: {
+      get() {
+        return this.$store.state.textColor
+      },
+      set(value) {
+        this.$store.commit('setTextColor', value)
+      }
+    },
   }
 }
 </script>
