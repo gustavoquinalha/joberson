@@ -4,18 +4,37 @@ export const state = () => ({
   sidebar: false,
   edit: true,
   dark: false,
-  app: {
-    width: 800,
-    height: 600,
-    backgroundUrl: '',
-    backgroundSize: 'cover',
-    backgroundAlign: 'center',
-    backgroundColor: '#000',
-    textColor: '#fff'
-  }
+  width: 800,
+  height: 600,
+  backgroundUrl: '',
+  backgroundSize: 'cover',
+  backgroundAlign: 'center',
+  backgroundColor: '#000',
+  textColor: '#fff',
 })
 
 export const mutations = {
+  setWidth(state, value) {
+    state.width = value
+  },
+  setHeight(state, value) {
+    state.height = value
+  },
+  setBackgroundUrl(state, value) {
+    state.backgroundUrl = value
+  },
+  setBackgroundAlign(state, value) {
+    state.backgroundAlign = value
+  },
+  setBackgroundColor(state, value) {
+    state.backgroundColor = value
+  },
+  setBackgroundSize(state, value) {
+    state.backgroundSize = value
+  },
+  setTextColor(state, value) {
+    state.textColor = value
+  },
   setDark(state, value) {
     state.dark = value
   },
