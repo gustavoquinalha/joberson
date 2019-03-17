@@ -145,7 +145,15 @@ export default {
   },
   computed: {
     style() {
-      return `width:${this.$store.state.width}px;height:${this.$store.state.height}px;`
+      return `
+        width:${this.$store.state.width}px;
+        height:${this.$store.state.height}px;
+        background-color: ${this.$store.state.backgroundColor};
+        background-image: url(${this.$store.state.backgroundUrl});
+        background-size: ${this.$store.state.backgroundSize};
+        background-position: ${this.$store.state.backgroundAlign};
+        text-color: ${this.$store.state.textColor};
+      `
     }
   }
 }
